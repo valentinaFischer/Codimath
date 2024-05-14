@@ -1,0 +1,24 @@
+{% extends "site/master.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2>Editar</h2>
+        <form action="/user/update/{{user.id}}" method="POST">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="hidden" name="_METHOD" value="PUT">
+              <input type="text" class="form-control" name="email" value="{{user.email}}">
+              {{ messages['email']['message']|message(messages['email']['alert'])|raw }}
+            </div>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="nome" value="{{user.nome}}">
+                {{ messages['nome']['message']|message(messages['nome']['alert'])|raw }}
+              </div>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+          </form>
+          <br>
+          {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
+    </div>
+    
+{% endblock %}

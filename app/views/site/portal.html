@@ -1,0 +1,11 @@
+{% extends "site/master.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2>Portal do Professor</h2>
+    </div>
+
+    {{message['message']|message(message['alert'])|raw}} <!--USUARIO NÃO EXISTE-->
+
+
+{% endblock %}

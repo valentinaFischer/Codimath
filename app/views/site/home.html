@@ -1,0 +1,23 @@
+{% extends "site/master.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2>Meu nome é {{name}}</h2>
+    </div>
+    
+    <ul>
+        {% for user in users %}
+        <li>{{user.nome}}</li>
+        <a href="/user/edit/{{user.id}}" class="btn btn-success">Editar</a>
+        <form action="/user/delete/{{user.id}}" method="POST">
+            <input type="hidden" name="_METHOD" value="DELETE">
+            <button type="submit" class="btn btn-danger">Deletar Conta</button>
+        </form>
+        {% endfor %}
+    </ul>
+    
+
+    {{message['message']|message(message['alert'])|raw}} <!--USUARIO NÃO EXISTE-->
+
+
+{% endblock %}

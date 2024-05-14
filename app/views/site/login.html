@@ -1,0 +1,28 @@
+{% extends "site/master.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2>Login</h2>
+        {% if is_logged_in %}Você já está logado(a) {% else %}
+        <form action="/login" method="POST">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" name="email">
+              {{ messages['email']['message']|message(messages['email']['alert'])|raw }}
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Senha</label>
+              <input type="password" class="form-control" name="senha">
+              {{ messages['senha']['message']|message(messages['senha']['alert'])|raw }}
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
+          <br>
+          {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
+    </div>
+    {% endif %}
+{% endblock %}

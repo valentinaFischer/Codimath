@@ -1,0 +1,20 @@
+<div id="header" style="display: flex; justify-content:space-between;">
+    <div>
+        <a href="/" class="btn btn-success">Home</a>
+    </div> 
+    <div>
+        <a href="/portal" class="btn btn-info">Portal</a>
+    </div> 
+    <div>
+        {% if is_logged_in %}
+        Bem-vindo, {{user.nome}}
+        <a href="/logout" class="btn btn-danger">Logout</a>
+        {% else %}
+        Bem-vindo, visitante
+        <a href="/login" class="btn btn-warning">Login</a>
+    {% endif %}
+    </div>       
+    <div>
+        <a href="/cadastro" class="btn btn-danger">Cadastrar</a>
+    </div>
+</div>
