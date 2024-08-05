@@ -1,0 +1,16 @@
+{% extends "site/master.html" %}
+{% block content %}
+{% include "site/partials/header.html" %}
+
+    <div class="container">
+        <h2>Portal do Professor</h2>
+    </div>
+
+    {{user.nome}}
+
+    <a href="/gerencie" class="btn btn-primary">Acessar Turmas</a>
+
+    {{message['message']|message(message['alert'])|raw}} <!--USUARIO NÃO EXISTE-->
+
+
+{% endblock %}

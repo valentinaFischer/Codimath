@@ -1,0 +1,31 @@
+{% extends "site/master.html" %}
+{% block content %}
+{% include "site/partials/header.html" %}
+
+    <div class="container">
+        <h2>Editar Aluno</h2>
+        <form action="/aluno/update/{{aluno.id}}" method="POST">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="hidden" name="_METHOD" value="PUT">
+              <input type="text" class="form-control" name="nome" value="{{aluno.nome}}">
+              {{ messages['nome']['message']|message(messages['nome']['alert'])|raw }}
+            </div>
+            <div class="mb-3">
+                <label for="turmaSelecionada" class="form-label fw-bold">Selecionar Turma</label>
+                <select class="form-control" id="turmaSelecionada" name="turmaSelecionada">
+                    {% for turma in turmas %}
+                      <option value="{{ turma.id }}" {% if turma.id == aluno.turma_id %}selected{% endif %}>
+                        {{ turma.nome }}
+                      </option>
+                    {% endfor %}
+                </select>
+                {{ messages['turmaSelecionada']['message']|message(messages['turmaSelecionada']['alert'])|raw }}
+              </div>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+          </form>
+          <br>
+          {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
+    </div>
+    
+{% endblock %}
