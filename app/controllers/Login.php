@@ -45,7 +45,7 @@ class Login extends Base
 
         if ($logged)
         {
-            return \app\helpers\redirect($response, '/');
+            return \app\helpers\redirect($response, '/portal');
         }
 
         Flash::set('message', 'Não foi possível efetuar o Login, tente novamente', 'danger');

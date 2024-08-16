@@ -4,6 +4,7 @@ namespace app\controllers;
 use app\classes\Flash;
 use app\classes\Validate;
 use app\database\models\Usuario;
+use app\database\models\Professor;
 
 require_once __DIR__ . '/../helpers/redirect.php';
 
@@ -44,8 +45,26 @@ class Entrar extends Base
 
         if ($created)
         {
-            Flash::set('message', 'Cadastrado com sucesso');
-            return \app\helpers\redirect($response, '/'); //enviar para página de painel do professor depois
+            $user = $this->user->findBy('email', $email);
+            $id = $user->id;
+    
+            // Inserir dados na tabela professor
+            $this->professor = new Professor;
+            $professorCreated = $this->professor->create(['usuario_id' => $id, 'nome' => $nome]);
+    
+            if ($professorCreated) {
+                Flash::set('message', 'Cadastrado com sucesso');
+                $_SESSION['user_logged_data'] = [
+                    'nome' => $nome,
+                    'email' => $email,
+                    'id' => $id
+                ];
+                $_SESSION['is_logged_in'] = true;
+                return \app\helpers\redirect($response, '/portal'); 
+            } else {
+                Flash::set('message', 'Ocorreu um erro ao cadastrar na tabela professor');
+                return \app\helpers\redirect($response, '/cadastro');
+            }
         }
 
         Flash::set('message', 'Ocorreu um erro ao cadastrar');

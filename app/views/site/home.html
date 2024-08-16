@@ -1,7 +1,123 @@
 {% extends "site/master.html" %}
 {% block content %}
+{% include "site/partials/header.html" %}
 
-    <div class="container">
+<div class="container-fluid sala">
+    <div class="container text-center content">
+        <div class="row">
+            <div class="col-12">
+                <p class="ensine">Ensine</p>
+            </div>
+            <div class="col-12">
+                <p class="titulo">MATEMÁTICA</p>
+            </div>
+            <div class="col-12">
+                <p class="ajuda">com nossa ajuda!</p>
+            </div>
+        </div>
+    </div>
+</div>       
+
+    <div class="fala container" id="mais-info">
+        <p class="fala1">Por que escolher o Codimath?</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 cartaoEscuro">
+                <img src="./assets/site/images/gamificacao.png" class="iconimg">
+                <h2>Gamificação</h2>
+                <p class="tcoluna">Seus alunos aprenderão de forma divertida e lúdica, se conectando ainda com a tecnologia!</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 cartaoEscuro">
+                <img src="./assets/site/images/Customizacao.png" class="iconimg">
+                <h2>Customização</h2>
+                <p class="tcoluna">Atenda os diferentes níveis de seus alunos, escolhendo quais jogos cada um jogará</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 cartaoEscuro">
+                <img src="./assets/site/images/desempenho.png" class="iconimg">
+                <h2>Desempenho</h2>
+                <p class="tcoluna">Acompanhe o desempenho dos seus alunos, observando suas dificuldades e aprendizados</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 cartaoEscuro">
+                <img src="./assets/site/images/progresso.png" class="iconimg">
+                <h2 class="coluna1">Progresso</h2>
+                <p class="tcoluna">Com o progresso de cada aluno sendo salvo, a motivação é o que não faltará!</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 cartaoEscuro">
+                <img src="./assets/site/images/usuabilidade.png" class="iconimg">
+                <h2>Usabilidade</h2>
+                <p class="tcoluna">O CodiMath preza pela fácil navegação dos usuários pelo site!</p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 cartaoEscuro">
+                <img src="./assets/site/images/responsividade.png" class="iconimg">
+                <h2>Responsividade</h2>
+                <p class="tcoluna">Acesse o site por diversas plataformas!</p>
+            </div>
+        </div>
+    </div>
+
+    <img class="elementoVerde2" src="/assets/site/images/verde2.png" alt="elemento verde">
+    
+    <section class="home" id="home">
+
+        <div class="swiper container home-slider">
+
+            <div class="swiper-wrapper wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="content fonteCarrossel">
+                        <span>Jogos</span>
+                        <h3 class="fonteCarrosselH">Tiro ao alvo</h3>
+                        <p class="fonteCarrosselP">O jogo tiro ao alvo desafia os jogadores a resolver problemas matemáticos para acertar alvos.
+                        </p>
+                    </div>
+                    <div class="image">
+                        <img src="/assets/site/images/jogoTiro.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content fonteCarrossel">
+                        <span class="jogostit">Jogos</span>
+                        <h3 class="nomejogo fonteCarrosselH">Jogo da cobrinha</h3>
+                        <p class="fonteCarrosselP">O jogo envolve guiar uma cobra para comer números, separando-os em ímpares e pares, reforçando a compreensão dos jogadores.
+                        </p>
+                    </div>
+                    <div class="image">
+                        <img src="/assets/site/images/jogoCobrinha.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content fonteCarrossel">
+                        <span>Jogos</span>
+                        <h3 class="fonteCarrosselH">Jogo da memória</h3>
+                        <p class="fonteCarrosselP">O jogo desafia os jogadores a encontrar pares de cartas que combinam os números.
+                        </p>
+                    </div>
+                    <div class="image">
+                        <img src="/assets/site/images/jogoMemoria.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content fonteCarrossel">
+                        <span>Jogos</span>
+                        <h3 class="fonteCarrosselH">Salve a terra</h3>
+                        <p class="fonteCarrosselP">Neste jogo, os jogadores resolvem problemas matemáticos para proteger o planeta. Cada resposta correta defende a Terra.
+                        </p>
+                    </div>
+                    <div class="image">
+                        <img src="/assets/site/images/jogoSalve.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+
+    <!--aaa<div class="container">
         <h2>Meu nome é {{name}}</h2>
     </div>
     
@@ -14,10 +130,9 @@
             <button type="submit" class="btn btn-danger">Deletar Conta</button>
         </form>
         {% endfor %}
-    </ul>
+    </ul>-->
     
 
-    {{message['message']|message(message['alert'])|raw}} <!--USUARIO NÃO EXISTE-->
-
+    {% include "site/partials/footer.html" %}
 
 {% endblock %}

@@ -1,11 +1,87 @@
 {% extends "site/master.html" %}
 {% block content %}
+{% include "site/partials/header.html" %}
 
-    <div class="container">
-        <h2>Portal do Professor</h2>
+<div class="container-fluid portal-professor">
+    <div class="row align-items-center">
+        <div class="col-md-4 col-12">
+            <h3 class="portalProf">Portal do Professor</h3>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 col-12">
+            <p class="portalSN">Olá professor(a) {{user.nome}}!</p>
+        </div>
     </div>
 
-    {{message['message']|message(message['alert'])|raw}} <!--USUARIO NÃO EXISTE-->
+    <div class="row align-items-center content-section">
+        <div class="col-md-1"></div>
+        <div class="col-md-4 col-12 text-center">
+            <div class="card-matematica">
+                <h4>Vamos estudar matemática!</h4>
+                <br>
+                <p class="portalCard">Customize suas turmas e acompanhe o progresso dos alunos</p>
+                <br>
+                <a href="/gerencie" class="btn btn-primary">Acessar Turmas</a>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6 col-12 text-center">
+            <img src="/assets/site/images/gatinho1.png" alt="Gato com Laptop" class="cat-image">
+        </div>
+    </div>
+    
+</div>
 
 
+<img src="/assets/site/images/verde2.png" alt="elemento verde" class="elementoVerde">
+    <div class="preto">
+            <h3 class="add">Conteúdos adicionais</h3> 
+
+            <div class="row additional-content">
+                <div class="col-md-6 col-12 text-center centralizarAdd">
+                    <div class="card-activities">
+                        <img src="/assets/site/images/impresso.png" alt="Atividades" class="activity-image">
+                        <p class="portal">Atividades impressas</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 text-center centralizarAdd">
+                    <div class="card-plans">
+                        <img src="/assets/site/images/planos.png" alt="Planos de aula" class="plan-image">
+                        <p class="portal2">Planos de aula</p> <!-- Corrigido aqui -->
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="conheca">Conheça nossa</h2>
+            <h1 class="comunidade"> COMUNIDADE</h1>
+
+            <br><br><br>
+            <div class="container-bandeira">
+                <div class="card-custom-bandeira">
+                    <div class="card-body-bandeira">
+                        <div class="mb-4">
+                            <span class="stat-value">{{userCount}}</span>
+                            <div class="prof">Usuários</div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="stat-value">{{professorCount}}</span>
+                            <div class="prof">Professores</div>
+                        </div>
+                        <div class="mb-4">
+                            <span class="stat-value">{{alunoCount}}</span>
+                            <div class="prof">Alunos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="/assets/site/images/bandeira.png" alt="Gatinhos">
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    {% include "site/partials/footer.html" %}
 {% endblock %}

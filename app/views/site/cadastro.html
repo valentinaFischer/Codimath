@@ -1,32 +1,48 @@
 {% extends "site/master.html" %}
 {% block content %}
 
-    <div class="container">
-        <h2>Cadastrar</h2>
+  <div class="login">
+    <div class="left-section">
+        <div class="content">
+            <h1 class="h1login">Bem-vindo ao <span>CODIMATH</span></h1>
+            <p class="plogin">Transformando a matemática em diversão e 
+                progresso: Codimath, o seu aliado gamificado no 
+                ensino fundamental 1!</p>
+        </div>
+    </div>
+    <div class="right-section">
+
+      <div class="right-section">
         <form action="/cadastro/store" method="POST">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="text" class="form-control" name="email">
-              {{ messages['email']['message']|message(messages['email']['alert'])|raw }}
-            </div>
-            <div class="mb-3">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="nome">
-                {{ messages['nome']['message']|message(messages['nome']['alert'])|raw }}
+          <img src="/assets/site/images/logoBlack.png" alt="Logo">
+          <div class="btn-group btn-login">
+            <button type="button" class="btn_noactive"><a href="/login">Login</a></button>
+            <button type="button" class="btn_active"><a href="/cadastro">Cadastro</a></button>
+          </div>
+          <input type="text" placeholder="Nome" name="nome">
+          {{ messages['name']['message']|message(messages['name']['alert'])|raw }}
+          <input type="email" placeholder="Email" name="email">
+          {{ messages['email']['message']|message(messages['email']['alert'])|raw }}
+          <input type="password" placeholder="Senha" name="senha">
+          {{ messages['senha']['message']|message(messages['senha']['alert'])|raw }}
+          <input type="submit" value="Cadastrar">
+          <div class="checkbox-container">
+            <div class="remember-me">
+              <div>
+                <input type="checkbox" id="remember">
+                <label for="remember">Lembrar de mim</label>
               </div>
+            </div>
+        </form>
+      </div>
+    </div>
+
+      <!--<div class="container">
+        
             <div class="mb-3">
               <label for="pwd" class="form-label">Senha</label>
               <input type="password" class="form-control" name="senha">
-              {{ messages['senha']['message']|message(messages['senha']['alert'])|raw }}
+              <input type="password" placeholder="Repetir senha" name="senha2">
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-          </form>
-          <br>
-          {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
-    </div>
     
 {% endblock %}

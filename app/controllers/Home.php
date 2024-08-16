@@ -23,7 +23,7 @@ class Home extends Base
         $message = Flash::get('message');
 
         return $this->getTwig()->render($response, $this->setView('site/home'), [
-            'title' => 'home',
+            'title' => 'Codimath',
             'users' => $users,
             'message' => $message
         ]);    

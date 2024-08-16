@@ -1,0 +1,84 @@
+{% extends "site/master.html" %}
+{% block content %}
+
+
+<div class="container-fluid vamosJogar1">
+    {% include "site/partials/headerBlack.html" %}
+    <h1 class="vamosJogar">Vamos Jogar!</h1>
+        <div id="album-rotator">
+            <div id="album-rotator-holder">
+                <a class="album-item1" href="/jogo/{{aluno.id}}/1">
+                    <span class="album-details">
+                        <span class="titulo2">Jogo da Cobrinha</span>
+                    </span>
+                </a>
+                <a class="album-item2" href="/jogo/{{aluno.id}}/2">
+                    <span class="album-details">
+                        <span class="titulo2">Adivinhe o Número</span>
+                    </span>
+                </a>
+                <a class="album-item3" href="/jogo/{{aluno.id}}/3">
+                    <span class="album-details">
+                        <span class="titulo2">Jogo da Memória</span>
+                    </span>
+                </a>
+                <a class="album-item4" href="/jogo/{{aluno.id}}/4">
+                    <span class="album-details">
+                        <span class="titulo2">Salve a Terra</span>
+                    </span>
+                </a>
+                <a class="album-item5" href="/jogo/{{aluno.id}}/5">
+                    <span class="album-details">
+                        <span class="titulo2">Pega Número</span>
+                    </span>
+                </a>
+                <a class="album-item6" href="/jogo/{{aluno.id}}/6">
+                    <span class="album-details">
+                        <span class="titulo2">Tiro ao Alvo</span>
+                    </span>
+                </a>
+            </div>
+            <img class="gato" src="/assets/site/images/gatoo.png">
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const rotatorHolder = document.getElementById('album-rotator-holder');
+                let isDragging = false;
+                let startX;
+                let scrollLeft;
+
+                rotatorHolder.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    rotatorHolder.style.cursor = 'grabbing';
+                    startX = e.pageX - rotatorHolder.offsetLeft;
+                    scrollLeft = rotatorHolder.scrollLeft;
+                });
+
+                rotatorHolder.addEventListener('mouseleave', () => {
+                    isDragging = false;
+                    rotatorHolder.style.cursor = 'grab';
+                });
+
+                rotatorHolder.addEventListener('mouseup', () => {
+                    isDragging = false;
+                    rotatorHolder.style.cursor = 'grab';
+                });
+
+                rotatorHolder.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    const x = e.pageX - rotatorHolder.offsetLeft;
+                    const walk = (x - startX) * 2; //scroll-fast
+                    rotatorHolder.scrollLeft = scrollLeft - walk;
+                });
+
+                rotatorHolder.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    rotatorHolder.scrollLeft += e.deltaY;
+                });
+            });
+        </script>
+
+</div>
+
+{% endblock %}

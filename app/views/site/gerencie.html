@@ -1,0 +1,67 @@
+{% extends "site/master.html" %}
+{% block content %}
+{% include "site/partials/header.html" %}
+
+<div class="bg-white">
+    <div class="container">
+        <h2 class="heading">Gerencie suas Turmas</h2>
+        <a href="/criarTurma" class="btn btn-success">Configurar Turmas</a>
+
+        <br>
+        <br>
+        <label for="turma">Selecionar Turma:</label>
+        <select id="turma" name="turma">
+            <option value="">Selecione uma turma</option>
+            {% for turma in turmas %}
+                <option value="{{ turma.id }}">{{ turma.nome }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" id="professor-id" value="{{ idProfessor }}">
+
+
+        <div class="row align-items-center content-section links">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 col-12 text-center">
+            <div class="col-md-2"></div>
+                <div class="card-link">
+                    <h4 class="mt-4">Link para os alunos</h4>
+                    <br>
+                    <input type="link" class="form-control" readonly placeholder="O link aparecerá aqui" id="link">
+                    <div class="btn-container">
+                        <button class="btn btn-dark copiar" onclick="copiarLink()">Copiar</button>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6 col-12 text-center">
+                <!-- Se precisar adicionar uma imagem ou outro conteúdo aqui, faça isso -->
+            </div>
+        </div>
+</div>
+    <script>
+        document.getElementById('turma').addEventListener('change', function() {
+            var turmaId = this.value;
+            var professorId = document.getElementById('professor-id').value;
+            var linkInput = document.getElementById('link');
+
+            if (turmaId) {
+                var link = 'http://localhost:3000/turma/' + turmaId;
+                linkInput.value = link;
+            } else {
+                linkInput.value = '';
+            }
+        });
+
+
+        function copiarLink() {
+            var linkInput = document.getElementById('link');
+            linkInput.select();
+            document.execCommand('copy');
+            alert('Link copiado: ' + linkInput.value);
+        }
+    </script>
+
+{% include "site/partials/footer.html" %}
+
+{% endblock %}

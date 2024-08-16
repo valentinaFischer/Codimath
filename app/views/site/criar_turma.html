@@ -1,0 +1,80 @@
+{% extends "site/master.html" %}
+{% block content %}
+{% include "site/partials/header.html" %}
+
+<div class="bg-white">
+    <div class="container">
+        {% if messages %}
+            <div>
+                {% for key, message in messages %}
+                    <div class="alert alert-{{ message.alert }}" role="alert">
+                        {{ message.message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="formulario">
+            <h2 class="heading">Criar Turma</h2>
+            <form action="/criarTurma" method="post">
+                <div class="mb-3">
+                    <label for="nomeTurma" class="form-label fw-bold">Nome da Turma</label>
+                    <input type="text" class="form-control" id="nomeTurma" name="nomeTurma">
+                </div>
+                <button type="submit" class="btn btn-primary fw-bold" name="criarTurma">Criar Turma</button>
+            </form>
+
+            <h2>Adicionar Alunos</h2>
+            <form action="/adicionarAluno" method="post">
+                <div class="mb-3">
+                    <label for="turmaSelecionada" class="form-label fw-bold">Selecionar Turma</label>
+                    <select class="select" id="turmaSelecionada" name="turmaSelecionada">
+                        {% for turma in turmas %}
+                            <option value="{{ turma.id }}">{{ turma.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="nomeAluno" class="form-label fw-bold">Nome do Aluno</label>
+                    <input type="text" class="form-control" id="nomeAluno" name="nomeAluno">
+                </div>
+                <button type="submit" class="btn btn-primary fw-bold" name="criarAluno">Criar Aluno</button>
+            </form>
+        </div>
+
+        <div class="alunos-criados">
+            <h2>Alunos Criados</h2>
+            <ul class="list-group">
+                {% for aluno in alunos %}
+                    <li class="list-group-item">{{ aluno.nome }} - {{ aluno.turma_nome }}</li>
+                    <li class="list-group-item">
+                        <a href="/aluno/edit/{{aluno.id}}" class="btn btn-success">Editar</a>
+                        <form action="/aluno/delete/{{aluno.id}}" method="POST">
+                            <input type="hidden" name="_METHOD" value="DELETE">
+                            <button type="submit" class="btn btn-danger">Deletar Aluno</button>
+                        </form>
+                    </li> 
+                {% endfor %}
+            </ul>
+        </div>        
+
+        <div class="turmas-criados pb-5">
+            <h2>Turmas Criadas</h2>
+            <ul class="list-group">
+                {% for turma in turmas %}
+                    <li class="list-group-item">{{ turma.nome }}</li>
+                    <li class="list-group-item">
+                        <a href="/turma/edit/{{turma.id}}" class="btn btn-success">Editar</a>
+                        <form action="/turma/delete/{{turma.id}}" method="POST">
+                            <input type="hidden" name="_METHOD" value="DELETE">
+                            <button type="submit" class="btn btn-danger">Deletar Turma</button>
+                        </form>
+                    </li> 
+                {% endfor %}
+            </ul>
+        </div>        
+    </div>
+</div>
+
+{% include "site/partials/footer.html" %}
+
+{% endblock %}

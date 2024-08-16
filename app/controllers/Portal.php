@@ -3,7 +3,9 @@ namespace app\controllers;
 
 use app\classes\Flash;
 use app\classes\Validate;
+use app\database\models\Aluno;
 use app\database\models\Usuario;
+use app\database\models\Professor;
 
 class Portal extends Base
 {
@@ -14,6 +16,8 @@ class Portal extends Base
     {
         $this->user = new Usuario;
         $this->validate = new Validate;
+        $this->professor = new Professor;
+        $this->aluno = new Aluno;
     }
 
     public function index($request, $response) {
@@ -21,9 +25,17 @@ class Portal extends Base
 
         $message = Flash::get('message');
 
+        $professorCount = $this->professor->countAll();
+        $alunoCount = $this->aluno->countAll();
+        $userCount = $professorCount + $alunoCount;
+
         return $this->getTwig()->render($response, $this->setView('site/portal'), [
             'title' => 'Portal do Professor',
-            'users' => $users
+            'users' => $users,
+            'message' => $message,
+            'userCount' => $userCount,
+            'professorCount' => $professorCount,
+            'alunoCount' => $alunoCount
         ]);    
     }
 }

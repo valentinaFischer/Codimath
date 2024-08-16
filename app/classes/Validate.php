@@ -9,7 +9,7 @@ class Validate
     {
         foreach ($fields as $field) {
             if (empty($_POST[$field])) {
-                $this->errors[$field] = "O campo é obrigatório";
+                $this->errors[$field] = "Todos os campos são obrigatórios";
             }
         }
 
@@ -22,7 +22,7 @@ class Validate
 
         if ($data)
         {
-            $this->errors[$field] = "Email já cadastrado";
+            $this->errors[$field] = "Já cadastrado";
         }
 
         return $this;
