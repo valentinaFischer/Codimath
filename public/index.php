@@ -20,6 +20,8 @@ require '../app/middlewares/logged.php';
 require '../app/routes/user.php';
 require '../app/routes/site.php';
 require '../app/routes/entrar.php';
+require '../app/routes/aluno.php';
+require '../app/routes/jogos.php';
 
 $methodOverrideMiddleware = new MethodOverrideMiddleware();
 $app->add($methodOverrideMiddleware); //para poder trabalhar com PUT e DELETE, já que o HTML não tem suporte para isso

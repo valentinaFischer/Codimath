@@ -1,0 +1,1035 @@
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+  }
+
+.navbar-brand {
+    color: #CBE3FF !important;
+    font-family: 'Kadwa';
+    font-weight: 700;
+    font-size: 3.5vh;
+    margin-top: 0.5vh;
+}
+
+.logo {
+  height: 8vh;
+}
+
+body {
+  background-color: black;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sala {
+  background-image: url('/assets/site/images/sala.jpg'); /* Substitua pelo caminho correto da imagem */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ensine, .ajuda {
+  font-size: 2vw;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.titulo {
+  font-size: 6vw;
+  font-family: "Kadwa", serif;
+  font-weight: 700;
+  color: #84BCFF;
+  -webkit-text-stroke: 2px #1B78DE;
+  margin: 0;
+}
+
+.saibaMais {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 1rem;
+  padding: 2vh 2vw;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  background-color: #77AB76;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  width: 10vw;
+  height: 5vh;
+  text-align: center;
+}
+
+.saibaMais:hover {
+  background-color: #6d9b6c; 
+  color: #ffffff;
+}
+
+
+
+.cartaoEscuro{
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin-top: -5vh;
+  background-color: #15212f;
+  border: 10px solid black;
+  color: white;
+}
+
+
+.fala1 {
+  color: white;
+  text-align: center;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+  font-size: 5vh;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: left;
+  font-size: 4vh;
+  margin-top: 2vh;
+}
+
+.tcoluna {
+  text-align: justify;
+  font-size: 2.5vh;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.iconimg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  display: block;
+  
+}
+
+/*gerencie as turmas*/
+.bg-white {
+  background-color: white;
+  height: 100%;
+}
+
+.list-group li {
+  display: flex;
+  gap: 0.5vw;
+}
+
+.bg-indexAluno {
+  background-image: url('/assets/site/images/sala2.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  width: 100%;
+}
+
+.cardCentralizar {
+  margin: auto; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute; 
+  height: 26vh;
+  background-color: white !important; 
+  background-image: none;
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px; 
+  z-index: 5;
+}
+
+.portal-professor {
+  background-color:#fff;
+  padding: 20px;
+}
+
+.portalProf{
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+  margin-left: 7.5rem;
+}
+
+.portalSN{
+  margin: 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.add{
+  color: #fff;
+}
+
+
+.gatos2 {
+  margin-bottom: 5rem;
+}
+
+.gatos2 .card-activities,
+.gatos2 .card-plans {
+  margin-top: -2rem; /* Removido o valor negativo */
+}
+
+.gatos2 .activity-image,
+.gatos2 .plan-image {
+  margin-top: -2rem; /* Removido o valor negativo */
+}
+
+.gatos2 p {
+  margin-top: -1rem; /* Removido o valor negativo */
+}
+
+
+
+.portalCard {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.text-right {
+  text-align: right;
+}
+
+.content-section {
+  margin-top: 20px;
+}
+
+.card-matematica {
+  background-image: url('/assets/site/images/numeros.png');
+  background-size: cover;
+  background-position: center;
+  padding: 15px;
+  border-radius: 15px;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ajuste conforme necessário para ficar mais magrinho */
+  height: 31.25rem; /* Ajuste conforme necessário para ficar um pouco mais alto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centraliza o texto dentro do card */ 
+}
+
+.card-link {
+  display: inline-block;
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 10px; /* Espaço entre o campo de entrada e o botão */
+}
+
+.btn-dark {
+  width: 100%; /* Faz o botão ocupar toda a largura disponível */
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+.card-link {
+  background-image: url('/assets/site/images/verde.png');
+  background-size: cover;
+  background-position: center;
+  padding: 15px;
+  border-radius: 15px;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ajuste conforme necessário para ficar mais magrinho */
+  height: 9rem; /* Ajuste conforme necessário para ficar um pouco mais alto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centraliza o texto dentro do card */ 
+}
+
+.links {
+  padding-bottom: 15vh;
+}
+
+.cat-image {
+  max-width: 100%;
+  height: auto;
+  margin: 0; /* Removido qualquer margem extra */
+}
+
+
+.card-matematica h4 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.card-matematica p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+
+.portal {
+  margin: 0;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.portal2 {
+  margin: 0;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.add {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.portalCard {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.content-section {
+  margin-top: 0;
+}
+
+.preto {
+  margin-top: 3.125rem;
+  background-color: #000;
+  padding: 20px;
+  width: 100%;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Espaçamento entre as divs cinzas */
+  align-items: stretch; /* Alinha as divs cinzas na mesma altura */
+}
+
+.additional-content {
+  margin-top: 0;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente os elementos filhos */
+  justify-content: center;
+}
+
+.card-activities,
+.card-plans {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 10px;
+  color: #ffffff;
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  /* Centraliza horizontalmente */
+  transform: scale(0.5);  
+  transform-origin: center;
+  width: 60vw;
+}
+
+.centralizarAdd {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding-top: 0;
+  padding-bottom: 0; 
+
+}
+
+.activity-image, .plan-image {
+  max-width: 60%; 
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+
+.community-section {
+  margin-top: 30px;
+  background-color: #222;
+  padding: 40px;
+  border-radius: 15px;
+  color: #ffffff;
+}
+
+.community-section h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.card-custom-bandeira .mb-4 {
+  display: flex; /* Usei flexbox para alinhar os números e os textos lado a lado */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.community-stats {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+
+.container-bandeira {
+  display: flex; /* Flexbox para alinhar os itens dentro do container */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 30rem; /* Espaçamento entre o card e a imagem */
+  
+}
+.card-custom-bandeira {
+  background-color: #1E1E1E;
+  border-radius: 20px;
+  padding: 30px 80px; 
+  text-align: center;
+}
+.card-custom-bandeira .card-body {
+  padding: 0;
+}
+.card-custom-bandeira .stat-value {
+  font-size: 50px;
+  color: #00FF6A;
+  margin-right: 15px;
+}
+.prof{
+  color: white;
+}
+.image-container {
+  position: relative;
+  width: 400px;
+}
+.image-container img {
+  width: 100%;
+  border-radius: 20px;
+}
+.badge-custom {
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  background-color: #1E1E1E;
+  color: #00FF6A;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conheca {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+.comunidade {
+  color: #00FF6A;
+  text-align: center;
+  margin: 0;
+}
+.copiar{
+  color: #fff;
+  background-color: #035224;
+}
+
+
+/* JOGOS */
+canvas
+{
+  margin: auto;
+  position: absolute;
+  top: 10vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #4b4b4b;
+}
+
+#inputResposta {
+  position: absolute;
+  top: 97vh;
+  width: 40vw;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  font-size: 18px;
+}
+
+
+
+@media(max-width:768px){
+  .ensine, .ajuda {
+    font-size: 2rem;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .titulo {
+    font-size: 7rem;
+    font-family: "Kadwa", serif;
+    font-weight: 700;
+    color: #84BCFF;
+    -webkit-text-stroke: 2px #1B78DE;
+    margin: 0;
+  }
+  .container-bandeira {
+    flex-direction: column; /* Alinha os itens verticalmente em telas pequenas */
+    gap: 20px; /* Reduz o espaço entre os itens */
+  }
+
+  .image-container {
+    width: 200px; /* Reduz a largura para telas pequenas */
+  }
+}
+
+
+@media(max-width:480px){
+
+  .ensine, .ajuda {
+    font-size: 2rem;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .titulo {
+    font-size: 3rem;
+    font-family: "Kadwa", serif;
+    font-weight: 700;
+    color: #84BCFF;
+    -webkit-text-stroke: 2px #1B78DE;
+    margin: 0;
+  }
+  .image-container {
+    width: 150px; /* Reduz a largura para telas muito pequenas */
+  }
+
+  .card-custom-bandeira {
+    padding: 20px 40px; /* Ajusta o padding do card para telas menores */
+  }
+
+  .card-custom-bandeira .stat-value {
+    font-size: 40px; /* Reduz o tamanho da fonte para telas pequenas */
+  }
+}
+
+
+
+
+/* CARROSSEL HOME */
+.home {
+  background-color: #eee;
+}
+
+.home .home-slider .slide{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+}
+
+.home .home-slider .slide .content{
+  flex: 1 1 45rem;
+}
+
+.home .home-slider .slide .image{
+  flex: 1 1 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .home-slider .slide .image img{
+  width: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+.home .home-slider .slide .content span{
+  color:#000000;
+  font-size: 2.5rem;
+}
+
+.home .home-slider .slide .content h3{
+  color:#000000;
+  font-size: 4vh;
+}
+
+.home .home-slider .slide .content p{
+  color:#000000;
+  font-size: 2vh;
+  padding: .5rem 0;
+  line-height: 1.5;
+}
+
+.swiper-pagination-bullet-active{
+  background:#572950;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  html {
+      font-size: 50%;
+  }
+  header {
+      padding: 2rem 100%;
+  }
+
+  .card {
+    height: 40vw;
+}
+
+.fala1 {
+    padding-top: 10vw;
+    margin-bottom: 10vw;
+}
+
+
+
+section {
+    padding: 2rem;
+}
+
+.home .home-slider .slide .content h3{
+    font-size: 3vh;
+}
+
+}
+
+@media (max-width: 480px) {
+html {
+    font-size: 45%;
+  }
+}
+
+/*acabou elemento verde*/
+
+.elementoVerde {
+  width: 100%;
+  background-color: white;
+}
+
+.elementoVerde2 {
+  width: 100%;
+  background-color: black;
+}
+
+/* LOGN */
+
+.login {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white !important;
+}
+
+.logado {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-section {
+  flex: 1;
+  background: url('/assets/site/images/imglogin.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.left-section div {
+  max-width: 80%;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.right-section form {
+  max-width: 30rem;
+  width: 100%;
+  text-align: center;
+}
+
+.right-section img {
+  max-width: 10rem;
+  margin-bottom: 2rem;
+}
+
+.h1login {
+  font-size: 5vh;
+  margin-bottom: 1rem;
+}
+
+.plogin {
+  font-size: 3vh;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.btn-login {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-login button {
+  background-color: white;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 2.5rem;
+  font-size: 2vh;
+}
+
+.btn_active {
+  background-color: #fff;
+  color: black;
+  box-shadow: 0px 0px 1rem 0px rgba(0,0,0,0.1);
+}
+
+.btn_noactive {
+  background-color: transparent;
+  color: gray;
+}
+
+.btn-login a {
+  text-decoration: none;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select,
+.select
+  {
+  width: 100%;
+  padding: 2vh;
+  margin: 1rem 0;
+  border-radius: 2.5rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 1vh;
+  background-color: #32CD32;
+  color: white;
+  border: none;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background-color 0.3s ease; 
+}
+
+input[type="submit"]:hover {
+  background-color: #3be03b;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  margin: 1rem 0;
+  color: gray;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1vh;
+  margin-top: 1vh;
+}
+
+.remember-me label {
+  margin-left: 0.5rem;
+  font-size: 2vh;
+  color: gray;
+}
+
+@media (max-width: 1024px) {
+  .h1login {
+      font-size: 32px;
+  }
+  .plogin {
+      font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+      flex-direction: column;
+      height: auto;
+  }
+  .left-section, .right-section {
+      width: 100%;
+      padding: 15px;
+  }
+  .left-section {
+      order: 1;
+      height: 100vh;
+  }
+   .right-section {
+      order: 2;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding-bottom: 0; /* Remove padding no final */
+  }
+  .right-section form {
+      max-width: 90%;
+  }
+  .h1login {
+      font-size: 28px;
+  }
+  .plogin {
+      font-size: 14px;
+      margin: 20px 0;
+      text-align: justify;
+  }
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+      padding: 12px;
+      font-size: 14px;
+  }
+  .btn-login {
+      flex-direction: column;
+      align-items: center;
+  }
+  .btn-login button {
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 14px;
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .h1login {
+      font-size: 24px;
+  }
+  .plogin {
+      font-size: 13px;
+  }
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+      padding: 10px;
+      font-size: 12px;
+  }
+  .btn-login button {
+      padding: 8px;
+      margin: 3px 0;
+      font-size: 12px;
+  }
+}
+
+/* FOOTER */
+
+.codimath {
+    color: #CBE3FF !important;
+    font-family: 'Kadwa';
+    font-weight: 700;
+    font-size: 3.5vh;
+}
+
+.footer {
+  background-color: #1a1a1a; /* Fundo do footer */
+  color: #fff; /* Cor do texto */
+  padding: 40px 0 0 0; /* Espaçamento */
+}
+
+.footer h5 {
+  color: #84BCFF;
+}
+
+.footer .logo {
+  max-width: 80px; /* Tamanho da logo */
+}
+
+.footer .footer-bottom {
+  background-color: #000; /* Fundo da parte inferior */
+  padding: 10px 0; /* Espaçamento */
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #84BCFF;
+}
+
+/* GERENCiE */
+
+.heading {
+  padding-top: 2vh;
+  margin: 0;
+}
+
+/* VAMOS JOGAR */
+
+.vamosJogar1 {
+  padding: 0;
+  margin: 0;
+  background-image: url(https://s3-alpha-sig.figma.com/img/e51c/ff82/0680e1749f7804579a0d74a04ae85e5b?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DGD2DSZxSuBcW1KOpKuzk4PYt9uBylQsH~LGW8JlEYYJ64rRfmQTDOJRUE0v97rF7NveVBZoG8e8ZBIMDvV9elfJyiyL1XA2x6kx1vxRznShPoTY-NiKs0DVnSqR0HK-wg3Di4dM2nInop7~PJAsduPy21tL~6wwshPwOlBIIapH8DSJV9SQ-IDJ2mIZbO~Mql3nfxMBrkeLgEadHh8eNsIxfzg2XT4CDtNAkwSGch~3V82YgwAKAyS-Vu-K~YKinzHbXUSarltWuoUhWXzRKCSbxvVajQF2PTmBmTMh-DDNXezFW8up4~C3DSq7~RyMPodTAvJos5GzWLkkOgbCtA__);
+  background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: rem;
+  color: white;
+  min-height: 100vh;
+}
+
+.vamosJogar {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#album-rotator {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#album-rotator-holder {
+  display: flex;
+  overflow: hidden;
+  cursor: grab;
+  transition: transform 0.5s ease;
+}
+
+.album-item3, .album-item1, .album-item2, .album-item4, .album-item5, .album-item6 {
+  background: black;
+  box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  margin-right: 1rem;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.2s ease-out;
+}
+
+.album-item1 {
+  background-image: url('/assets/site/images/image1.png');
+}
+
+.album-item2 {
+  background-image: url('/assets/site/images/image2.png');
+}
+
+.album-item3 {
+  background-image: url('/assets/site/images/image3.png');
+}
+
+.album-item4 {
+  background-image: url('/assets/site/images/image4.png');
+}
+
+.album-item5 {
+  background-image: url('/assets/site/images/image5.png');
+}
+
+.album-item6 {
+  background-image: url('/assets/site/images/image6.png');
+}
+
+.album-item2:hover, .album-item1:hover, .album-item3:hover, .album-item4:hover, .album-item5:hover, .album-item6:hover {
+  transform: scale(1.05);
+}
+
+.album-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
+.titulo2 {
+  font-weight: 900;
+}
+
+.icone {
+  font-size: 1rem;
+}
+
+.gato{
+  width: 19rem;
+  height: auto;
+  align-items:flex-end;
+}
+
+
+/* JOGO */
+
+.backwhite {
+  height: 90vh;
+  background-color: white !important;
+}
