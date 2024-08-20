@@ -22,6 +22,7 @@ function generateQuestion() {
     const num1 = generateRandomNumber(11);
     const num2 = generateRandomNumber(11);
     const correctAnswer = num1 * num2;
+    gameOverMessage = `${num1} x ${num2} = ${correctAnswer}`;
     question = `${num1} x ${num2}?`;
 
     if (typeof startTime === 'undefined') {
@@ -52,6 +53,8 @@ function endGame() {
         // Preenche os campos do formulário
         document.getElementById("pontuacaoFinal").value = score;
         document.getElementById("tempoTotal").value = Math.floor((Date.now() - startTime) / 1000); // Assume que startTime é a hora de início do jogo
+        document.getElementById("mensagem").value = gameOverMessage;
+       
 
         // Submete o formulário
         document.getElementById("formPontuacao").submit();
@@ -68,21 +71,20 @@ function drawTargets() {
     drawBackground(); // desenha o fundo antes de desenhar outros elementos
 
     ctx.font = '24px Arial';
-    ctx.fillStyle = '#000000'; // Cor do texto
-    // Ajusta as coordenadas para posicionar o texto no centro da plaquinha
+    ctx.fillStyle = '#000000'; 
     const textX = 136; // Centraliza horizontalmente
-    const textY = 120; // Ajusta verticalmente para ficar na plaquinha
+    const textY = 120; 
     ctx.fillText(question, textX, textY);
 
     targets.forEach(target => {
         // Preenche o círculo do alvo com a cor amarela
         ctx.beginPath();
-        ctx.arc(target.x, target.y, 20, 0, 2 * Math.PI); // Ajuste o tamanho do círculo conforme necessário
-        ctx.fillStyle = '#fbb263'; // Cor do preenchimento do alvo
+        ctx.arc(target.x, target.y, 20, 0, 2 * Math.PI); 
+        ctx.fillStyle = '#fbb263'; 
         ctx.fill();
 
-        // Centraliza o número no alvo
-        ctx.fillStyle = '#000000'; // Cor do texto
+        
+        ctx.fillStyle = '#000000'; 
         const answerTextWidth = ctx.measureText(target.answer).width;
         ctx.fillText(target.answer, target.x - answerTextWidth / 2, target.y + 8);
     });
@@ -123,27 +125,27 @@ function handleShot(x, y) {
             if (target.correct) {
                 score++;
                 document.getElementById("score").innerText = `Pontos: ${score}`;
-                generateQuestion(); // Gera nova pergunta e alvos
+                generateQuestion(); 
             } else {
-                endGame(); // Chama a função de fim de jogo
+                endGame(); 
                 score = 0;
                 document.getElementById("score").innerText = `Pontos: ${score}`;
-                generateQuestion(); // Reinicia o jogo
+                generateQuestion(); 
             }
-            update(); // Atualiza o canvas após uma ação
+            update(); 
         }
     });
 
     if (!hitTarget) {
-        update(); // Garante que o canvas seja desenhado mesmo quando não há acerto
+        update(); 
     }
 };
 
-// Define a imagem de fundo e a função para carregar a imagem
-backgroundImage.src = '/assets/site/images/fundo6.png'; // Substitua pelo caminho da sua imagem
+
+backgroundImage.src = '/public/assets/site/images/fundo6.png'; 
 backgroundImage.onload = () => {
-    generateQuestion(); // Gera a primeira pergunta ao iniciar o jogo
-    update(); // Desenha os alvos e a pergunta inicial
+    generateQuestion(); 
+    update(); 
 };
 
 canvas.addEventListener('click', (e) => {

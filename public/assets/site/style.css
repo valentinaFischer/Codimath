@@ -26,7 +26,7 @@ html {
 }
 
 .sala {
-  background-image: url('/assets/site/images/sala.jpg'); /* Substitua pelo caminho correto da imagem */
+  background-image: url('/public/assets/site/images/sala.jpg'); /* Substitua pelo caminho correto da imagem */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -142,7 +142,7 @@ h2 {
 }
 
 .bg-indexAluno {
-  background-image: url('/assets/site/images/sala2.png');
+  background-image: url('/public/assets/site/images/sala2.png');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -222,7 +222,7 @@ h2 {
 }
 
 .card-matematica {
-  background-image: url('/assets/site/images/numeros.png');
+  background-image: url('/public/assets/site/images/numeros.png');
   background-size: cover;
   background-position: center;
   padding: 15px;
@@ -255,7 +255,7 @@ h2 {
   justify-content: center;
 }
 .card-link {
-  background-image: url('/assets/site/images/verde.png');
+  background-image: url('/public/assets/site/images/verde.png');
   background-size: cover;
   background-position: center;
   padding: 15px;
@@ -672,7 +672,7 @@ html {
 
 .left-section {
   flex: 1;
-  background: url('/assets/site/images/imglogin.png') no-repeat center center;
+  background: url('/public/assets/site/images/imglogin.png') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -972,27 +972,27 @@ input[type="submit"]:hover {
 }
 
 .album-item1 {
-  background-image: url('/assets/site/images/image1.png');
+  background-image: url('/public/assets/site/images/image1.png');
 }
 
 .album-item2 {
-  background-image: url('/assets/site/images/image2.png');
+  background-image: url('/public/assets/site/images/image2.png');
 }
 
 .album-item3 {
-  background-image: url('/assets/site/images/image3.png');
+  background-image: url('/public/assets/site/images/image3.png');
 }
 
 .album-item4 {
-  background-image: url('/assets/site/images/image4.png');
+  background-image: url('/public/assets/site/images/image4.png');
 }
 
 .album-item5 {
-  background-image: url('/assets/site/images/image5.png');
+  background-image: url('/public/assets/site/images/image5.png');
 }
 
 .album-item6 {
-  background-image: url('/assets/site/images/image6.png');
+  background-image: url('/public/assets/site/images/image6.png');
 }
 
 .album-item2:hover, .album-item1:hover, .album-item3:hover, .album-item4:hover, .album-item5:hover, .album-item6:hover {
@@ -1032,4 +1032,121 @@ input[type="submit"]:hover {
 .backwhite {
   height: 90vh;
   background-color: white !important;
+}
+
+/* JOGO DA MEMÓRA */
+
+.memoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cardMemoria {
+  width: 100px;
+  height: 100px;
+  background-color: #b5c7e7;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.cardMemoria .number {
+  display: none;
+  font-size: 24px;
+  color: #ffffff;
+  backface-visibility: hidden;
+}
+
+.cardMemoria.flipped .number {
+  display: block;
+  transform: rotateY(180deg);
+}
+
+.cardMemoria.flipped {
+  background-color: #4a90e2;
+  transform: rotateY(180deg);
+}
+
+.cardMemoria.matched {
+  background-color: #00c853;
+  pointer-events: none;
+}
+
+.message {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.scoreMemoria {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .game-board {
+      grid-template-columns: repeat(4, 70px);
+      grid-gap: 8px;
+  }
+
+  .cardMemoria {
+      width: 70px;
+      height: 70px;
+      font-size: 18px;
+  }
+
+  .message, .scoreMemoria {
+      font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .game-board {
+      grid-template-columns: repeat(4, 50px);
+      grid-gap: 6px;
+  }
+
+  .cardMemoria {
+      width: 50px;
+      height: 50px;
+      font-size: 14px;
+  }
+
+  .message, .scoreMemoria {
+      font-size: 16px;
+  }
+}
+
+.editar {
+  background-color: white;
+  width: 100%;
+  min-height: 100vh;
 }

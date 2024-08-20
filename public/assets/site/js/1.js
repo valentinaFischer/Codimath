@@ -2,6 +2,9 @@
 
 /*CLASSES E FUNÇÕES */
 
+const backgroundImage = new Image();
+backgroundImage.src = '/public/assets/site/images/background.png';
+
 class Obj {
     constructor(x, y, width, height) {
         this.x = x;
@@ -116,7 +119,7 @@ class Game {
     }
 
     reset() {
-        this.snake = new Snake(100, 100, 20, "/assets/site/images/snake_head.png");
+        this.snake = new Snake(100, 100, 20, "/public/assets/site/images/snake_head.png");
         this.apples = this.generateApples();
         this.score = 0;
         this.macasPares = 0;
@@ -138,6 +141,7 @@ class Game {
             document.getElementById("macasPares").value = this.macasPares;
             document.getElementById("macasImpares").value = this.macasImpares;
             document.getElementById("colisoes").value = this.colisoes;
+            document.getElementById("mensagem").value = this.gameOverMessage;
 
             document.getElementById("formPontuacao").submit();
             this.scoreSaved = true;
@@ -151,8 +155,8 @@ class Game {
         let number2 = this.getRandomNumber(false);
 
         let size = 40; // tamanho da maçã
-        apples.push(new Apple(positions[0].x, positions[0].y, size, "/assets/site/images/apple.png", number1));
-        apples.push(new Apple(positions[1].x, positions[1].y, size, "/assets/site/images/apple.png", number2));
+        apples.push(new Apple(positions[0].x, positions[0].y, size, "/public/assets/site/images/apple.png", number1));
+        apples.push(new Apple(positions[1].x, positions[1].y, size, "/public/assets/site/images/apple.png", number2));
 
         return apples;
     }
@@ -202,6 +206,8 @@ class Game {
             this.gameOverMessage = this.snake.checkCollisionWithBounds(this.snake.body[0])
                 ? "Cuidado para não colidir"
                 : "Cuidado para não colidir";
+
+            return;
         }
     }
 
@@ -244,9 +250,6 @@ class Game {
         ctx.fillText("Pressione Enter para jogar novamente", canvas.width / 2, canvas.height / 2 + 50);
     }
 };
-
-const backgroundImage = new Image();
-backgroundImage.src = '/assets/site/images/background.png';
 
 /* LOOP DO JOGO */
 

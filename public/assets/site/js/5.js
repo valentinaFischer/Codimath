@@ -9,10 +9,10 @@ let startTime;
 let totalTime;
 
 const backgroundImage = new Image();
-backgroundImage.src = '/assets/site/images/fundo5.png'; // Imagem de fundo
+backgroundImage.src = '/public/assets/site/images/fundo5.png'; // Imagem de fundo
 
 const netImage = new Image();
-netImage.src = '/assets/site/images/net.png'; // Imagem da rede
+netImage.src = '/public/assets/site/images/net.png'; // Imagem da rede
 
 const net = {
     x: canvas.width / 2,
@@ -22,10 +22,10 @@ const net = {
 };
 
 const fishImages = [
-    '/assets/site/images/fish1.png',
-    '/assets/site/images/fish2.png',
-    '/assets/site/images/fish3.png',
-    '/assets/site/images/fish4.png'
+    '/public/assets/site/images/fish1.png',
+    '/public/assets/site/images/fish2.png',
+    '/public/assets/site/images/fish3.png',
+    '/public/assets/site/images/fish4.png'
 ];
 
 function endGame() {
@@ -35,14 +35,15 @@ function endGame() {
 
         document.getElementById("pontuacaoFinal").value = score;
         document.getElementById("tempoTotal").value = tempoTotal;
+        document.getElementById("mensagem").value = gameOverMessage;
         document.getElementById("formPontuacao").submit();
         scoreSaved = true; // Marca que a pontuação foi salva
     }
 }
 
 function randomFish() {
-    const isNumber = Math.random() < 0.2; // 20% chance de ser um número
-    const numberOrLetter = isNumber ? Math.floor(Math.random() * 100) : getRandomLetter();
+    const isNumber = Math.random() < 0.5; // 50% chance de ser um número
+    const numberOrLetter = isNumber ? Math.floor(Math.random() * 10) : getRandomLetter();
     const image = new Image();
     image.src = fishImages[Math.floor(Math.random() * fishImages.length)];
 
@@ -66,7 +67,7 @@ function randomFish() {
         width: 50,
         height: 50,
         value: numberOrLetter,
-        speed: 1, // Ajuste a velocidade aqui
+        speed: 1, 
         image: image
     };
 }
@@ -92,7 +93,7 @@ function updateFish(fish) {
     if (fish.y > canvas.height) {
         if (typeof fish.value === 'number') {
             gameOver = true;
-            gameOverMessage = `Você perdeu! ${fish.value} é um número`;
+            gameOverMessage = `${fish.value} é um número`;
         }
         // Remove o peixe da tela e garante que ele não recomece no topo
         fishes.splice(fishes.indexOf(fish), 1);
@@ -116,7 +117,7 @@ function updateGame() {
         ctx.font = '30px Arial';
         ctx.textAlign = 'center';
         ctx.fillText(gameOverMessage, canvas.width / 2, canvas.height / 2 - 30);
-        ctx.font = '20px Arial';
+        ctx.font = '25px Arial';
         ctx.fillText('Pressione Enter para jogar de novo', canvas.width / 2, canvas.height / 2 + 30);
 
         endGame(); 
@@ -136,7 +137,7 @@ function updateGame() {
 
         if (detectCollision(fishes[i])) {
             if (typeof fishes[i].value === 'string') {
-                gameOverMessage = `Você perdeu! ${fishes[i].value} é uma letra`;
+                gameOverMessage = `${fishes[i].value} é uma letra`;
                 gameOver = true; // Fim de jogo
             } else {
                 score += 1; // Adiciona 1 ponto ao pegar um número

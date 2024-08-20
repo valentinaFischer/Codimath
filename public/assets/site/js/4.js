@@ -12,16 +12,16 @@ let asteroidsLost = 0;
 let livesLostByErrors = 0; 
 
 const backgroundImage = new Image();
-backgroundImage.src = '/assets/site/images/background4.png'; // Caminho para a imagem de fundo
+backgroundImage.src = '/public/assets/site/images/background4.png'; // Caminho para a imagem de fundo
 
 const asteroidImage = new Image();
-asteroidImage.src = '/assets/site/images/asteroid.png'; // Caminho para a imagem dos asteroides
+asteroidImage.src = '/public/assets/site/images/asteroid.png'; // Caminho para a imagem dos asteroides
 
 const heartImage = new Image();
-heartImage.src = '/assets/site/images/heart.png';
+heartImage.src = '/public/assets/site/images/heart.png';
 
 let imagesLoaded = 0;
-const totalImages = 3; // Total de imagens que você está carregando
+const totalImages = 3; 
 
 function checkImagesLoaded() {
     imagesLoaded++;
@@ -130,24 +130,25 @@ function showGameOverScreen() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Exibe a mensagem de Game Over
-    ctx.font = "30px Arial";
+    ctx.font = "40px Arial";
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.fillText("Você perdeu!", canvas.width / 2, canvas.height / 2 - 40);
-    ctx.font = "20px Arial";
+    ctx.font = "30px Arial";
     ctx.fillText(`Sua pontuação: ${score}`, canvas.width / 2, canvas.height / 2);
-    ctx.font = "16px Arial";
+    ctx.font = "25px Arial";
     ctx.fillText("Pressione Enter para jogar de novo", canvas.width / 2, canvas.height / 2 + 40);
 
+    gameOverMessage = `Sua pontuação: ${score}`;
     // Salva o score e envia o formulário se ainda não tiver sido salvo
     if (!scoreSaved) {
         scoreSaved = true;
-        sendGameData();
+        sendGameData(gameOverMessage);
         document.getElementById("formPontuacao").submit();
     }
 };
 
-function sendGameData() {
+function sendGameData(gameOverMessageSend) {
     const pontuacaoFinal = score;
     const tempoTotal = Math.floor((Date.now() - startTime) / 1000); // Tempo total em segundos
     const vidasPerdidasErradas = livesLostByErrors; // Vidas perdidas por respostas erradas
@@ -158,6 +159,7 @@ function sendGameData() {
     document.getElementById('tempoTotal').value = tempoTotal;
     document.getElementById('vidas_perdidas_erradas').value = vidasPerdidasErradas;
     document.getElementById('vidas_perdidas_canvas').value = vidasPerdidasCanvas;
+    document.getElementById('mensagem').value = gameOverMessageSend;
 };
 
 function checkAnswer(input) {
