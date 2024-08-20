@@ -38,7 +38,7 @@
                     </span>
                 </a>
             </div>
-            <img class="gato" src="/assets/site/images/gatoo.png">
+            <img class="gato" src="/public/assets/site/images/gatoo.png">
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
@@ -46,38 +46,58 @@
                 let isDragging = false;
                 let startX;
                 let scrollLeft;
-
+        
+                // Eventos de mouse
                 rotatorHolder.addEventListener('mousedown', (e) => {
                     isDragging = true;
                     rotatorHolder.style.cursor = 'grabbing';
                     startX = e.pageX - rotatorHolder.offsetLeft;
                     scrollLeft = rotatorHolder.scrollLeft;
                 });
-
+        
                 rotatorHolder.addEventListener('mouseleave', () => {
                     isDragging = false;
                     rotatorHolder.style.cursor = 'grab';
                 });
-
+        
                 rotatorHolder.addEventListener('mouseup', () => {
                     isDragging = false;
                     rotatorHolder.style.cursor = 'grab';
                 });
-
+        
                 rotatorHolder.addEventListener('mousemove', (e) => {
                     if (!isDragging) return;
                     e.preventDefault();
                     const x = e.pageX - rotatorHolder.offsetLeft;
-                    const walk = (x - startX) * 2; //scroll-fast
+                    const walk = (x - startX) * 2; //scroll rápido
                     rotatorHolder.scrollLeft = scrollLeft - walk;
                 });
-
+        
+                // Eventos de toque para dispositivos móveis
+                rotatorHolder.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    startX = e.touches[0].pageX - rotatorHolder.offsetLeft;
+                    scrollLeft = rotatorHolder.scrollLeft;
+                });
+        
+                rotatorHolder.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+        
+                rotatorHolder.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    const x = e.touches[0].pageX - rotatorHolder.offsetLeft;
+                    const walk = (x - startX) * 2; //scroll rápido
+                    rotatorHolder.scrollLeft = scrollLeft - walk;
+                });
+        
                 rotatorHolder.addEventListener('wheel', (e) => {
                     e.preventDefault();
                     rotatorHolder.scrollLeft += e.deltaY;
                 });
             });
         </script>
+        
 
 </div>
 

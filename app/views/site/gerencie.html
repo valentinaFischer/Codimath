@@ -16,7 +16,39 @@
                 <option value="{{ turma.id }}">{{ turma.nome }}</option>
             {% endfor %}
         </select>
+
+        <select id="aluno" name="aluno">
+            <option value="">Selecione um aluno</option>
+        </select>
+
         <input type="hidden" id="professor-id" value="{{ idProfessor }}">
+
+        <div class="container">
+            <h2 class="heading">Desempenho do Aluno no Jogo da Cobrinha</h2>
+            <div id="desempenho">
+                <p>Precisão na Identificação de Maçãs: <span id="precisao"></span></p>
+                <p>Pontos por Segundo: <span id="pontos_por_segundo"></span></p>
+                <p>Taxa de Colisões: <span id="taxa_colisoes"></span></p>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById('aluno').addEventListener('change', function() {
+                var alunoId = this.value;
+        
+                if (alunoId) {
+                    fetch(`/gerencie/desempenho/${alunoId}`)
+                        .then(response => response.json())
+                        .then(dados => {
+                            document.getElementById('precisao').innerText = dados.precisao;
+                            document.getElementById('pontos_por_segundo').innerText = dados.pontos_por_segundo;
+                            document.getElementById('taxa_colisoes').innerText = dados.taxa_colisoes;
+                        })
+                        .catch(error => console.error('Erro ao carregar desempenho:', error));
+                }
+            });
+        </script>
+        
 
 
         <div class="row align-items-center content-section links">
@@ -42,11 +74,35 @@
     <script>
         document.getElementById('turma').addEventListener('change', function() {
             var turmaId = this.value;
+            console.log('ID da turma selecionada: ', turmaId);
+
+            if (turmaId) {
+                fetch(`/gerencie/alunos/${turmaId}`)
+                    .then(response => response.json())
+                    .then(alunos => {
+                        var alunoSelect = document.getElementById('aluno');
+                        alunoSelect.innerHTML = '<option value="">Selecione um aluno</option>'; // Limpar as opções atuais
+
+                        alunos.forEach(function(aluno) {
+                            var option = document.createElement('option');
+                            option.value = aluno.id;
+                            option.text = aluno.nome;
+                            alunoSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Erro ao carregar os alunos:', error));
+            } else {
+                document.getElementById('aluno').innerHTML = '<option value="">Selecione um aluno</option>';
+            }
+        });
+
+        document.getElementById('turma').addEventListener('change', function() {
+            var turmaId = this.value;
             var professorId = document.getElementById('professor-id').value;
             var linkInput = document.getElementById('link');
 
             if (turmaId) {
-                var link = 'http://localhost:3000/turma/' + turmaId;
+                var link = 'http://localhost:3000/turma/' + turmaId; //https://codimath.infocimol.com.br/
                 linkInput.value = link;
             } else {
                 linkInput.value = '';

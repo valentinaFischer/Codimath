@@ -2,10 +2,25 @@
 {% block content %}
 {% include "site/partials/headerBlack.html" %}
 
+{% if jogo.id == 3 %}
+<div class="memoria">
+    <div class="scoreMemoria" id="scoreMemoria">Pontuação: 0</div>
+
+    <div class="game-board" id="game-board">
+        <!-- As cartas serão geradas aqui pelo JavaScript -->
+    </div>
+
+    <div class="message" id="message">
+        <!-- A mensagem será exibida aqui -->
+</div>
+</div>
+{% else %}
+    
+
 <div class="container-fluid backwhite">
         <canvas id="canvas" width="900" height="600"></canvas>
     <div id="score">Pontos: 0</div>
-
+{% endif %}
 
     {% if jogo.id == 4 %}
         <input type="text" id="inputResposta" placeholder="Digite a resposta aqui...">
@@ -16,6 +31,7 @@
     <form id="formPontuacao" action="/salvarPontuacao/{{aluno.id}}/{{professor.usuario_id}}/{{jogo.id}}" method="POST">
         <input type="hidden" name="pontuacaoFinal" id="pontuacaoFinal">
         <input type="hidden" name="tempoTotal" id="tempoTotal">
+        <input type="hidden" name="mensagem" id="mensagem">
 
         <!--JOGO DA COBRINHA-->
         {% if jogo.id == 1 %}
@@ -35,5 +51,5 @@
 </div>
 
 
-<script src="/assets/site/js/{{jogo.id}}.js"></script>
+<script src="/public/assets/site/js/{{jogo.id}}.js"></script>
 {% endblock %}

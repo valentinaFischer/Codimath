@@ -29,7 +29,8 @@ class RotaAluno extends Base {
         return $this->getTwig()->render($response, $this->setView('site/indexAluno'), [
             'title' => 'Vamos Jogar!',
             'messages' => $messages,
-            'alunos' => $alunos
+            'alunos' => $alunos,
+            'turma' => $idTurma
         ]);    
     }
 }

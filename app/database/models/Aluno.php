@@ -38,4 +38,15 @@ class Aluno extends Base {
         $stmt = $connection->query('SELECT COUNT(*) FROM aluno');
         return $stmt->fetchColumn();
     }
+
+    public function findDadosJogo($idAluno) {
+        $sql = "SELECT * FROM ponto_cobrinha WHERE id_aluno = :id_aluno";
+    
+        $connection = $this->connection;
+        $stmt = $connection->prepare($sql);
+        $stmt->bindValue(':id_aluno', $idAluno, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

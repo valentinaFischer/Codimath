@@ -32,7 +32,8 @@ class JogosEscolher extends Base {
             'title' => 'Escolha um Jogo',
             'messages' => $messages,
             'aluno' => $aluno,
-            'jogos' => $jogos
+            'jogos' => $jogos,
+            'idAluno' => $idAluno
         ]);    
     }
 }

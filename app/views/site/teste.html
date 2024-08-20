@@ -1,15 +1,49 @@
 {% extends "site/master.html" %}
 {% block content %}
-{% include "site/partials/header.html" %}
+{% include "site/partials/headerBlack.html" %}
 
-<div class="container">
-    testeee
+<div class="container-fluid backwhite">
+    <canvas id="canvas2" width="900" height="600"></canvas>
 
-    <p>{{jogo.id}}</p>
-    {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
+    <script>
+        const canvas = document.getElementById('canvas2');
+        const ctx = canvas.getContext('2d');
+        const mensagem = "{{ mensagem|e('js') }}";
 
+        // Configuração básica para desenhar a tela de "Game Over"
+        function drawGameOverScreen() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+            // Desenha o fundo escurecido
+            ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Desenha a mensagem de "Game Over"
+            ctx.font = "40px Arial";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("Você perdeu!", canvas.width / 2, canvas.height / 2 - 50);
+
+            ctx.font = "30px Arial";
+            ctx.fillText(mensagem, canvas.width / 2, canvas.height / 2);
+
+            // Desenha o botão de reinício
+            ctx.font = "25px Arial";
+            ctx.fillText("Pressione Enter para jogar novamente", canvas.width / 2, canvas.height / 2 + 50);
+        }
+
+        // Desenha a tela de game over
+        drawGameOverScreen();
+
+        // Função para reiniciar o jogo ao pressionar Enter
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                // Redireciona para a rota do jogo
+                window.location.href = "/jogo/{{ aluno.id }}/{{ jogo.id }}";
+            }
+        });
+    </script>
 </div>
-
 
 {% endblock %}

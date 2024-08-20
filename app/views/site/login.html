@@ -19,7 +19,7 @@
     </div>
     {% else %}
       <form action="/login" method="POST">
-          <img src="/assets/site/images/logoBlack.png" alt="Logo">
+          <img src="/public/assets/site/images/logoBlack.png" alt="Logo">
           <div class="btn-group btn-login">
               <button type="button" class="btn_active"><a href="/login">Login</a></button>
               <button type="button" class="btn_noactive"><a href="/cadastro">Cadastro</a></button>
@@ -37,6 +37,7 @@
         </div>
         <br><br>
         <input type="submit" value="Login">
+        <br><br>
         {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
       </form>
     {% endif %}

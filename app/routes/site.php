@@ -28,3 +28,6 @@ $app->get('/turma/edit/{id}', Turma::class . ":index")->add($logged);
 $app->put('/turma/update/{id}', Turma::class . ":update");
 $app->delete('/turma/delete/{id}', Turma::class . ":destroy");
 
+$app->get('/gerencie/alunos/{id}', Gerencie::class . ":alunos");
+
+$app->get('/gerencie/desempenho/{id}', Gerencie::class . ":desempenho");
