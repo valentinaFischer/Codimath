@@ -39,5 +39,3 @@ O objetivo principal desta plataforma é proporcionar uma ferramenta que facilit
 Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou abrir issues para discutir melhorias ou bugs.
 
 ---
-
-Sinta-se à vontade para ajustar qualquer parte da descrição para refletir melhor seu projeto ou adicionar mais informações que achar relevantes!
