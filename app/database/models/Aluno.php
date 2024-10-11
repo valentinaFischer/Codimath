@@ -39,8 +39,8 @@ class Aluno extends Base {
         return $stmt->fetchColumn();
     }
 
-    public function findDadosJogo($idAluno) {
-        $sql = "SELECT * FROM ponto_cobrinha WHERE id_aluno = :id_aluno";
+    public function findDadosJogo($idAluno, $jogo) {
+        $sql = "SELECT * FROM $jogo WHERE id_aluno = :id_aluno";
     
         $connection = $this->connection;
         $stmt = $connection->prepare($sql);
