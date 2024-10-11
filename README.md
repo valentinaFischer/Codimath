@@ -26,9 +26,13 @@ O objetivo principal desta plataforma é proporcionar uma ferramenta que facilit
    ```bash
    git clone https://github.com/valentinaFischer/Codimath.git
    ```
-2. Instale as dependências necessárias com npm install.
-3. Configure o banco de dados MySQL e atualize as configurações de conexão no arquivo de configuração.
-4. Execute a aplicação em seu servidor local.
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd Codimath
+   ```
+3. Instale as dependências necessárias com npm install.
+4. Configure o banco de dados MySQL e atualize as configurações de conexão no arquivo de configuração.
+5. Execute a aplicação em seu servidor local.
 
 ## Contribuições
 
