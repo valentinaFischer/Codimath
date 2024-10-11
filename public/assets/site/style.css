@@ -26,7 +26,7 @@ html {
 }
 
 .sala {
-  background-image: url('/public/assets/site/images/sala.jpg'); /* Substitua pelo caminho correto da imagem */
+  background-image: url('/public/assets/site/images/sala.jpg'); 
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -229,8 +229,8 @@ h2 {
   border-radius: 15px;
   color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Ajuste conforme necessário para ficar mais magrinho */
-  height: 31.25rem; /* Ajuste conforme necessário para ficar um pouco mais alto */
+  width: 100%; /* Para ficar mais magrinho */
+  height: 31.25rem; /*Para ficar um pouco mais alto */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -262,8 +262,8 @@ h2 {
   border-radius: 15px;
   color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Ajuste conforme necessário para ficar mais magrinho */
-  height: 9rem; /* Ajuste conforme necessário para ficar um pouco mais alto */
+  width: 100%; /* Para ficar mais magrinho */
+  height: 9rem; /* Para ficar um pouco mais alto */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -927,7 +927,7 @@ input[type="submit"]:hover {
 .vamosJogar1 {
   padding: 0;
   margin: 0;
-  background-image: url(https://s3-alpha-sig.figma.com/img/e51c/ff82/0680e1749f7804579a0d74a04ae85e5b?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DGD2DSZxSuBcW1KOpKuzk4PYt9uBylQsH~LGW8JlEYYJ64rRfmQTDOJRUE0v97rF7NveVBZoG8e8ZBIMDvV9elfJyiyL1XA2x6kx1vxRznShPoTY-NiKs0DVnSqR0HK-wg3Di4dM2nInop7~PJAsduPy21tL~6wwshPwOlBIIapH8DSJV9SQ-IDJ2mIZbO~Mql3nfxMBrkeLgEadHh8eNsIxfzg2XT4CDtNAkwSGch~3V82YgwAKAyS-Vu-K~YKinzHbXUSarltWuoUhWXzRKCSbxvVajQF2PTmBmTMh-DDNXezFW8up4~C3DSq7~RyMPodTAvJos5GzWLkkOgbCtA__);
+  background-image: url('/public/assets/site/images/bg_corredor.jpg');
   background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
   background-position: center; /* Centraliza a imagem */
   background-attachment: fixed;

@@ -52,7 +52,8 @@ class JogosController extends Base {
             'aluno' => $aluno,
             'jogo' => $jogo,
             'professor' => $professor,
-            'turma' => $turma
+            'turma' => $turma,
+            'idAluno' => $idAluno
         ]);    
     }
 

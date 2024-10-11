@@ -111,5 +111,4 @@ class Gerencie extends Base
                             ->withStatus(500);
         }
     }
-    
 }
