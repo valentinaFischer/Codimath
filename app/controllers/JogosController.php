@@ -158,4 +158,8 @@ class JogosController extends Base {
             'mensagem' => $mensagem
         ]);  
     }
+
+    public function desempenho($request, $response, $args) {
+        
+    }
 }
