@@ -12,45 +12,43 @@
 
     <div class="message" id="message">
         <!-- A mensagem será exibida aqui -->
+    </div>
+    <a href="/jogos/{{idAluno}}" class="voltar-button"><i class="bi bi-arrow-left-circle-fill"></i> Voltar</a>
 </div>
-</div>
-{% else %}
+    {% else %}
     <div class="container-fluid backwhite">
-    <canvas id="canvas" width="900" height="600"></canvas>
-{% endif %}
+        <a href="/jogos/{{idAluno}}" class="voltar-button"><i class="bi bi-arrow-left-circle-fill"></i> Voltar</a>
+        <canvas id="canvas" width="900" height="600" class="canvasJogos"></canvas>
+    {% endif %}
 
-{% if jogo.id == 6 %}
-    <div id="score">Pontos: 0</div>
-{% endif %}
+    {% if jogo.id == 6 %}
+        <div id="score">Pontos: 0</div>
+    {% endif %}
 
-{% if jogo.id == 4 %}
-    <input type="text" id="inputResposta" placeholder="Digite a resposta aqui...">
-{% endif %}
-    
-   
-
-    <form id="formPontuacao" action="/salvarPontuacao/{{aluno.id}}/{{professor.usuario_id}}/{{jogo.id}}" method="POST">
-        <input type="hidden" name="pontuacaoFinal" id="pontuacaoFinal">
-        <input type="hidden" name="tempoTotal" id="tempoTotal">
-        <input type="hidden" name="mensagem" id="mensagem">
-
-        <!--JOGO DA COBRINHA-->
-        {% if jogo.id == 1 %}
-            <input type="hidden" name="macasPares" id="macasPares">
-            <input type="hidden" name="macasImpares" id="macasImpares">
-            <input type="hidden" name="colisoes" id="colisoes">
-        {% endif %}
-
-        <!--JOGO SALVE A TERRA-->
-        {% if jogo.id == 4 %}
-            <input type="hidden" name="vidas_perdidas_erradas" id="vidas_perdidas_erradas">
-            <input type="hidden" name="vidas_perdidas_canvas" id="vidas_perdidas_canvas">
-        {% endif %}
+    {% if jogo.id == 4 %}
+        <input type="text" id="inputResposta" placeholder="Digite a resposta aqui...">
+    {% endif %}
         
-    </form>    
-    
-</div>
+        <form id="formPontuacao" action="/salvarPontuacao/{{aluno.id}}/{{professor.usuario_id}}/{{jogo.id}}" method="POST">
+            <input type="hidden" name="pontuacaoFinal" id="pontuacaoFinal">
+            <input type="hidden" name="tempoTotal" id="tempoTotal">
+            <input type="hidden" name="mensagem" id="mensagem">
 
+            <!--JOGO DA COBRINHA-->
+            {% if jogo.id == 1 %}
+                <input type="hidden" name="macasPares" id="macasPares">
+                <input type="hidden" name="macasImpares" id="macasImpares">
+                <input type="hidden" name="colisoes" id="colisoes">
+            {% endif %}
+
+            <!--JOGO SALVE A TERRA-->
+            {% if jogo.id == 4 %}
+                <input type="hidden" name="vidas_perdidas_erradas" id="vidas_perdidas_erradas">
+                <input type="hidden" name="vidas_perdidas_canvas" id="vidas_perdidas_canvas">
+            {% endif %}
+            
+        </form>    
+    </div>
 
 <script src="/public/assets/site/js/{{jogo.id}}.js"></script>
 {% endblock %}

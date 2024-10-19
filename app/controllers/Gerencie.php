@@ -76,9 +76,10 @@ class Gerencie extends Base
     
         try {
             // Buscar dados do aluno
-            $dadosJogo = $this->aluno->findDadosJogo($alunoId);
+
+            $dadosJogoCobrinha = $this->aluno->findDadosJogo($alunoId, 'ponto_cobrinha');
     
-            if (!$dadosJogo) {
+            if (!$dadosJogoCobrinha) {
                 $response->getBody()->write(json_encode(['error' => 'Dados não encontrados']));
                 return $response->withHeader('Content-Type', 'application/json')
                                 ->withStatus(404);

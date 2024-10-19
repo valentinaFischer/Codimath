@@ -1030,9 +1030,35 @@ input[type="submit"]:hover {
 /* JOGO */
 
 .backwhite {
-  height: 90vh;
+  height: 100vh;
   background-color: white !important;
 }
+
+.voltar-button {
+  padding: 2vh;
+  text-decoration: none;
+}
+
+/* Para telas grandes (desktop), o canvas será "deitado" */
+.canvasJogos {
+  display: block; /* Remove espaçamento extra */
+  width: 100%; /* Largura do elemento pai */
+  height: auto; /* Mantém a proporção */
+  max-width: 900px;
+  max-height: 600px;
+}
+
+/* Para telas menores (mobile), o canvas será "de pé" */
+@media (max-width: 768px) {
+  .canvasJogos {
+      width: auto;
+      height: 100%; /* Altura total do elemento pai */
+      max-height: 700px;
+      max-width: 400px; /* Ajusta para uma largura menor */
+  }
+}
+
+
 
 /* JOGO DA MEMÓRA */
 
