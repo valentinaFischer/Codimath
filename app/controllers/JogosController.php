@@ -37,6 +37,20 @@ class JogosController extends Base {
         $idJogo = $args['idJogo'];
         $idAluno = $args['idAluno'];
 
+        if ($idJogo === '1') {
+            $title = 'Jogo da Cobrinha';
+        } else if ($idJogo === '2') {
+            $title = 'Adivinhe o Número';
+        } else if ($idJogo === '3') {
+            $title = 'Jogo da Memória';
+        } else if ($idJogo === '4') {
+            $title = 'Salve a Terra';
+        } else if ($idJogo === '5') {
+            $title = 'Pega Número';
+        } else {
+            $title = 'Tiro ao Alvo';
+        }
+
         $jogo = $this->jogo->findBy('id', $idJogo);
         $aluno = $this->aluno->findBy('id', $idAluno);
 
@@ -47,7 +61,7 @@ class JogosController extends Base {
         $professor = $this->professor->findBy('usuario_id', $professorId);
 
         return $this->getTwig()->render($response, $this->setView('site/jogo'), [
-            'title' => 'Botar nome do jogo',
+            'title' => $title,
             'messages' => $messages,
             'aluno' => $aluno,
             'jogo' => $jogo,
@@ -157,9 +171,5 @@ class JogosController extends Base {
             'professor' => $professor,
             'mensagem' => $mensagem
         ]);  
-    }
-
-    public function desempenho($request, $response, $args) {
-        
     }
 }
