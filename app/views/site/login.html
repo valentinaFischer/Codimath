@@ -12,12 +12,7 @@
       </div>
   </div>
   <div class="right-section">
-    {% if is_logged_in %}
-    <div class="logado">
-      <h1>Você já está logado(a)</h1>
-      <a href="/portal" class="btn btn-primary">Portal do Professor</a>
-    </div>
-    {% else %}
+    
       <form action="/login" method="POST">
           <img src="/public/assets/site/images/logoBlack.png" alt="Logo">
           <div class="btn-group btn-login">
@@ -40,7 +35,7 @@
         <br><br>
         {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
       </form>
-    {% endif %}
+    
 </div>
 </div>
 {% endblock %}

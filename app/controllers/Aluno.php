@@ -36,7 +36,8 @@ class Aluno extends Base {
             'users' => $users,
             'messages' => $messages,
             'turmas' => $turmas,
-            'aluno' => $aluno
+            'aluno' => $aluno,
+            'userId' => $professorUsuarioId
         ]);    
     }
 

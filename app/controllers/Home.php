@@ -20,12 +20,15 @@ class Home extends Base
     public function index($request, $response) {
         $users = $this->user->find();
 
+        $professorUsuarioId = $_SESSION['user_logged_data']['id'];
+
         $message = Flash::get('message');
 
         return $this->getTwig()->render($response, $this->setView('site/home'), [
             'title' => 'Codimath',
             'users' => $users,
-            'message' => $message
+            'message' => $message,
+            'userId' => $professorUsuarioId
         ]);    
     }
 }

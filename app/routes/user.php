@@ -3,10 +3,14 @@ namespace app\routes;
 
 use app\controllers\User;
 use app\controllers\Login;
+use app\controllers\Perfil;
 
 $app->get('/user/edit/{id}', User::class . ":edit");
 $app->put('/user/update/{id}', User::class . ":update");
 $app->delete('/user/delete/{id}', User::class . ":destroy");
+
 $app->get('/login', Login::class . ":index");
 $app->post('/login', Login::class . ":store");
 $app->get('/logout', Login::class . ":destroy");
+
+$app->get('/perfil/{id}', Perfil::class . ":index");

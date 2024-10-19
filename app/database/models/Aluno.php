@@ -39,6 +39,23 @@ class Aluno extends Base {
         return $stmt->fetchColumn();
     }
 
+    public function countAllByProfessor($idProfessor)
+    {
+        $connection = $this->connection;
+        $sql = "
+        SELECT COUNT(*)
+        FROM aluno a
+        INNER JOIN turma t ON a.turma_id = t.id
+        WHERE t.professor_usuario_id = :idProfessor
+        ";
+
+        $connection = $this->connection;
+        $stmt = $connection->prepare($sql);  
+        $stmt->bindValue(':idProfessor', $idProfessor); 
+        $stmt->execute();  
+        return $stmt->fetchColumn();  
+    }
+
     public function findDadosJogo($idAluno, $jogo) {
         $sql = "SELECT * FROM $jogo WHERE id_aluno = :id_aluno";
     
@@ -48,5 +65,11 @@ class Aluno extends Base {
         $stmt->execute();
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteByTurma($turmaId) {
+        $stmt = $this->connection->prepare("DELETE FROM aluno WHERE turma_id = :turmaId");
+        $stmt->bindParam(':turmaId', $turmaId, PDO::PARAM_INT);
+        return $stmt->execute();
     }
 }

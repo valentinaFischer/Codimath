@@ -34,7 +34,8 @@ class Turma extends Base {
             'title' => 'Editar Turma',
             'users' => $users,
             'messages' => $messages,
-            'turma' => $turma
+            'turma' => $turma,
+            'userId' => $professorUsuarioId
         ]);    
     }
 

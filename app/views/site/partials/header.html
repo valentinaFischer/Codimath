@@ -20,7 +20,7 @@
         </ul>
         <span class="navbar-link">
           {% if is_logged_in %}
-            <a href="/logout" class="btn btn-primary">Sair</a>
+            <a href="/perfil/{{userId}}" class="btn btn-primary">Perfil</a>
           {% else %}
             <a href="/login" class="btn btn-primary">Entrar</a>
           {% endif %}

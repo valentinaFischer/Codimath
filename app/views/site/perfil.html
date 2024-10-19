@@ -1,0 +1,32 @@
+{% extends "site/master.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="profile-page">
+            <div class="content">
+              <div class="content__cover">
+                <div class="content__avatar"></div>
+              </div>
+              <div class="content__actions">
+                <a href="/">Voltar</a>
+                <a href="/logout">Sair</a>
+              </div>
+              <div class="content__title">
+                <h1>{{user.nome}}</h1>
+              </div>
+              <div class="content__description">
+                <p>Email: {{user.email}}</p>
+              </div>
+              <ul class="content__list">
+                <li><span>{{numeroTurmas}}</span>Turmas</li>
+                <li><span>{{numeroAlunos}}</span>Alunos</li>
+              </ul>
+              <div class="content__button"><a class="button" href="/user/edit/{{user.id}}">
+                  <div class="button__border"></div>
+                  <div class="button__bg"></div>
+                  <p class="button__text">Editar Perfil</p></a></div>
+            </div>
+          </div>
+    </div>
+
+{% endblock %}

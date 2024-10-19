@@ -2,8 +2,9 @@
 {% block content %}
 {% include "site/partials/header.html" %}
 
-    <div class="container">
-        <h2>Editar</h2>
+<div class="backwhite">
+  <div class="container backwhite">
+        <h2>Editar Perfil</h2>
         <form action="/user/update/{{user.id}}" method="POST">
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
@@ -20,6 +21,33 @@
           </form>
           <br>
           {{ messages['message']['message']|message(messages['message']['alert'])|raw }}
+
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Deletar Conta
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar Conta</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Você tem certeza? Essa ação é irreversível.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <form action="/user/delete/{{user.id}}" method="POST">
+                    <input type="hidden" name="id" value="{{user.id}}">
+                    <input type="hidden" name="_METHOD" value="DELETE">
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
-    
+</div>
 {% endblock %}

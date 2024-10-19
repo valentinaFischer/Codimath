@@ -24,10 +24,12 @@ class Portal extends Base
         $users = $this->user->find();
 
         $message = Flash::get('message');
+        $professorUsuarioId = $_SESSION['user_logged_data']['id'];
 
         $professorCount = $this->professor->countAll();
         $alunoCount = $this->aluno->countAll();
         $userCount = $professorCount + $alunoCount;
+        $user = $this->user->findBy('id', $professorUsuarioId);
 
         return $this->getTwig()->render($response, $this->setView('site/portal'), [
             'title' => 'Portal do Professor',
@@ -35,7 +37,9 @@ class Portal extends Base
             'message' => $message,
             'userCount' => $userCount,
             'professorCount' => $professorCount,
-            'alunoCount' => $alunoCount
+            'alunoCount' => $alunoCount,
+            'userId' => $professorUsuarioId,
+            'user' => $user
         ]);    
     }
 }

@@ -35,7 +35,8 @@ class CriarTurma extends Base {
             'users' => $users,
             'messages' => $messages,
             'turmas' => $turmas,
-            'alunos' => $alunos
+            'alunos' => $alunos,
+            'userId' => $professorUsuarioId
         ]);    
     }
 

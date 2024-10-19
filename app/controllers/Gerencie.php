@@ -32,7 +32,8 @@ class Gerencie extends Base
         return $this->getTwig()->render($response, $this->setView('site/gerencie'), [
             'title' => 'Gerencie as Turmas',
             'turmas' => $turmas,
-            'idProfessor' => $professorUsuarioId
+            'idProfessor' => $professorUsuarioId,
+            'userId' => $professorUsuarioId
         ]);    
     }
 
