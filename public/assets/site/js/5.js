@@ -151,7 +151,7 @@ function updateGame() {
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
     ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 10, 20);
+    ctx.fillText(`Pontos: ${score}`, 10, 20);
 
     requestAnimationFrame(updateGame);
 }

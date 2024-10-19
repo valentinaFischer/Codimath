@@ -49,26 +49,21 @@ function startGame() {
     const chosenNumber = numbers[randomIndex];
     correctNumber = chosenNumber.value;
 
-    // Draw the number word
     ctx.fillStyle = '#007bff';
     ctx.fillText(chosenNumber.word, canvas.width / 2, canvas.height / 4);
 
-    // Generate options
     const shuffledNumbers = shuffleArray(numbers).slice(0, 4);
     if (!shuffledNumbers.some(number => number.value === chosenNumber.value)) {
         shuffledNumbers.pop();
         shuffledNumbers.push(chosenNumber);
     }
 
-    // Shuffle options to ensure correct number is not in a fixed position
     shuffledNumbers.sort(() => Math.random() - 0.5);
 
-    // Define button size and margin
     const buttonWidth = 100;
     const buttonHeight = 60;
     const buttonMargin = 20;
 
-    // Calculate starting x and y positions
     const startX = (canvas.width - (2 * buttonWidth + buttonMargin)) / 2;
     const startY = (canvas.height - (2 * buttonHeight + buttonMargin)) / 2;
 
@@ -93,15 +88,12 @@ function getPastelColor() {
 function drawButton(x, y, width, height, value) {
     const buttonColor = getPastelColor();
 
-    // Draw button background
     ctx.fillStyle = buttonColor;
     ctx.fillRect(x, y, width, height);
     
-    // Draw button text
     ctx.fillStyle = '#000';
     ctx.fillText(value, x + width / 2, y + height / 2);
 
-    // Detect button click
     canvas.addEventListener('click', (event) => {
         const rect = canvas.getBoundingClientRect();
         const mouseX = event.clientX - rect.left;
@@ -111,7 +103,7 @@ function drawButton(x, y, width, height, value) {
             mouseY >= y && mouseY <= y + height) {
             checkAnswer(value);
         }
-    }, { once: true }); // Ensures the event listener is removed after click
+    }, { once: true }); 
 }
 
 function checkAnswer(value) {
@@ -134,7 +126,7 @@ function submitGameOver() {
     const totalTime = Math.floor((new Date() - startTime) / 1000);
     document.getElementById('pontuacaoFinal').value = score;
     document.getElementById('tempoTotal').value = totalTime;
-    document.getElementById('mensagem').value = 'Game Over';
+    document.getElementById('mensagem').value = `A resposta era ${correctNumber}`;
     form.submit();
 }
 
