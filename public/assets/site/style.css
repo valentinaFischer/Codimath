@@ -206,6 +206,10 @@ h2 {
   margin-top: -1rem; /* Removido o valor negativo */
 }
 
+#desempenho1, #desempenho2 {
+  display: none;
+}
+
 
 
 .portalCard {

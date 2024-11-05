@@ -18,38 +18,178 @@
         </select>
 
         <select id="aluno" name="aluno">
-            <option value="">Selecione um aluno</option>
+            {% for aluno in alunos %}
+                <option value="{{ aluno.id }}">{{ aluno.nome }}</option>
+            {% endfor %}
         </select>
 
         <input type="hidden" id="professor-id" value="{{ idProfessor }}">
 
-        <div class="container">
-            <h2 class="heading">Desempenho do Aluno no Jogo da Cobrinha</h2>
-            <div id="desempenho">
-                <p>Precisão na Identificação de Maçãs: <span id="precisao"></span></p>
-                <p>Pontos por Segundo: <span id="pontos_por_segundo"></span></p>
-                <p>Taxa de Colisões: <span id="taxa_colisoes"></span></p>
-            </div>
-        </div>
-        
-        <script>
-            document.getElementById('aluno').addEventListener('change', function() {
-                var alunoId = this.value;
-        
-                if (alunoId) {
-                    fetch(`/gerencie/desempenho/${alunoId}`)
-                        .then(response => response.json())
-                        .then(dados => {
-                            document.getElementById('precisao').innerText = dados.precisao;
-                            document.getElementById('pontos_por_segundo').innerText = dados.pontos_por_segundo;
-                            document.getElementById('taxa_colisoes').innerText = dados.taxa_colisoes;
-                        })
-                        .catch(error => console.error('Erro ao carregar desempenho:', error));
-                }
-            });
-        </script>
-        
+        <h2 id="desempenho2">Desempenho do Aluno</h2>
 
+        <div id="desempenho1">
+            <div class="container">
+                <h2 class="heading">Jogo da Cobrinha</h2>
+                <div id="desempenho">
+                    <p>Precisão na Identificação de Números Pares: <span id="precisao"></span></p>
+                    <p>Pontos por Segundo: <span id="pontos_por_segundo"></span></p>
+                    <p>Taxa de Colisões: <span id="taxaColisoes"></span></p>
+                    <p>Avaliação: <span id="mensagemDesempenho"></span></p>
+                    <p>mediaPontosPorJogo: <span id="mediaPontosPorJogo"></span></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('aluno').addEventListener('change', function() {
+                    var alunoId = this.value;
+            
+                    if (alunoId) {
+                        fetch(`/gerencie/desempenho/${alunoId}`)
+                            .then(response => response.json())
+                            .then(dados => {
+                                document.getElementById('mensagemDesempenho').innerText = dados.mensagemDesempenho;
+                                document.getElementById('precisao').innerText = dados.precisao;
+                                document.getElementById('taxaColisoes').innerText = dados.taxaColisoes;
+                                document.getElementById('pontos_por_segundo').innerText = dados.pontosPorSegundo;
+                                document.getElementById('mediaPontosPorJogo').innerText = dados.mediaPontosPorJogo;
+                            })
+                            .catch(error => console.error('Erro ao carregar desempenho:', error));
+                    }
+                });
+            </script>
+
+            <div class="container">
+                <h2 class="heading">Adivinhe o Número</h2>
+                <div id="desempenho">
+                    <p>Precisão na Identificação de Números Escritos: <span id="precisaoAdivinhe"></span></p>
+                    <p>Pontos por Segundo: <span id="pontosPorSegundoAdivinhe"></span></p>
+                    <p>Avaliação: <span id="mensagemDesempenhoAdivinhe"></span></p>
+                    <p>mediaPontosPorJogo: <span id="mediaPontosPorJogoAdivinhe"></span></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('aluno').addEventListener('change', function() {
+                    var alunoId = this.value;
+            
+                    if (alunoId) {
+                        fetch(`/gerencie/desempenho/${alunoId}`)
+                            .then(response => response.json())
+                            .then(dados => {
+                                document.getElementById('mensagemDesempenhoAdivinhe').innerText = dados.mensagemDesempenhoAdivinhe;
+                                document.getElementById('precisaoAdivinhe').innerText = dados.precisaoAdivinhe;
+                                document.getElementById('pontosPorSegundoAdivinhe').innerText = dados.pontosPorSegundoAdivinhe;
+                                document.getElementById('mediaPontosPorJogoAdivinhe').innerText = dados.mediaPontosPorJogoAdivinhe;
+                            })
+                            .catch(error => console.error('Erro ao carregar desempenho:', error));
+                    }
+                });
+            </script>
+
+            <div class="container">
+                <h2 class="heading">Jogo da Memória</h2>
+                <div id="desempenho">
+                    <p>Tempo médio por jogo: <span id="tempoMedioPorJogoMemoria"></span></p>
+                    <p>Avaliação: <span id="mensagemDesempenhoMemoria"></span></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('aluno').addEventListener('change', function() {
+                    var alunoId = this.value;
+            
+                    if (alunoId) {
+                        fetch(`/gerencie/desempenho/${alunoId}`)
+                            .then(response => response.json())
+                            .then(dados => {
+                                document.getElementById('mensagemDesempenhoMemoria').innerText = dados.mensagemDesempenhoMemoria;
+                                document.getElementById('tempoMedioPorJogoMemoria').innerText = dados.tempoMedioPorJogoMemoria;
+                            })
+                            .catch(error => console.error('Erro ao carregar desempenho:', error));
+                    }
+                });
+            </script>
+
+            <div class="container">
+                <h2 class="heading">Salve a Terra</h2>
+                <div id="desempenho">
+                    <p>Precisão em cálculos de adição e subtração: <span id="precisaoSalve"></span></p>
+                    <p>Pontos por Segundo: <span id="pontosPorSegundoSalve"></span></p>
+                    <p>Avaliação: <span id="mensagemDesempenhoSalve"></span></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('aluno').addEventListener('change', function() {
+                    var alunoId = this.value;
+            
+                    if (alunoId) {
+                        fetch(`/gerencie/desempenho/${alunoId}`)
+                            .then(response => response.json())
+                            .then(dados => {
+                                document.getElementById('precisaoSalve').innerText = dados.precisaoSalve;
+                                document.getElementById('pontosPorSegundoSalve').innerText = dados.pontosPorSegundoSalve;
+                                document.getElementById('mensagemDesempenhoSalve').innerText = dados.mensagemDesempenhoSalve;
+                            })
+                            .catch(error => console.error('Erro ao carregar desempenho:', error));
+                    }
+                });
+            </script>
+
+            <div class="container">
+                <h2 class="heading">Pega-Número</h2>
+                <div id="desempenho">
+                    <p>Precisão na diferenciação de números e letras: <span id="precisaoPega"></span></p>
+                    <p>Avaliação: <span id="mensagemDesempenhoPega"></span></p>
+                    <p>mediaPontosPorJogo: <span id="mediaPontosPorJogoPega"></span></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('aluno').addEventListener('change', function() {
+                    var alunoId = this.value;
+            
+                    if (alunoId) {
+                        fetch(`/gerencie/desempenho/${alunoId}`)
+                            .then(response => response.json())
+                            .then(dados => {
+                                document.getElementById('precisaoPega').innerText = dados.precisaoPega;
+                                document.getElementById('mensagemDesempenhoPega').innerText = dados.mensagemDesempenhoPega;
+                                document.getElementById('mediaPontosPorJogoPega').innerText = dados.mediaPontosPorJogoPega;
+                            })
+                            .catch(error => console.error('Erro ao carregar desempenho:', error));
+                    }
+                });
+            </script>
+
+            <div class="container">
+                <h2 class="heading">Tiro ao Alvo</h2>
+                <div id="desempenho">
+                    <p>Precisão na Multiplicação: <span id="precisaoTiro"></span></p>
+                    <p>Pontos por Segundo: <span id="pontosPorSegundoTiro"></span></p>
+                    <p>Avaliação: <span id="mensagemDesempenhoTiro"></span></p>
+                    <p>mediaPontosPorJogo: <span id="mediaPontosPorJogoTiro"></span></p>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('aluno').addEventListener('change', function() {
+                    var alunoId = this.value;
+            
+                    if (alunoId) {
+                        fetch(`/gerencie/desempenho/${alunoId}`)
+                            .then(response => response.json())
+                            .then(dados => {
+                                document.getElementById('mensagemDesempenhoTiro').innerText = dados.mensagemDesempenhoTiro;
+                                document.getElementById('precisaoTiro').innerText = dados.precisaoTiro;
+                                document.getElementById('pontosPorSegundoTiro').innerText = dados.pontosPorSegundoTiro;
+                                document.getElementById('mediaPontosPorJogoTiro').innerText = dados.mediaPontosPorJogoTiro;
+                            })
+                            .catch(error => console.error('Erro ao carregar desempenho:', error));
+                    }
+                });
+            </script>
+        </div>
 
         <div class="row align-items-center content-section links">
             <div class="col-md-2"></div>
@@ -73,12 +213,12 @@
     <script>
         document.getElementById('turma').addEventListener('change', function() {
             var turmaId = this.value;
-            console.log('ID da turma selecionada: ', turmaId);
 
             if (turmaId) {
                 fetch(`/gerencie/alunos/${turmaId}`)
                     .then(response => response.json())
                     .then(alunos => {
+                        console.log("Alunos recebidos: ", alunos); 
                         var alunoSelect = document.getElementById('aluno');
                         alunoSelect.innerHTML = '<option value="">Selecione um aluno</option>'; // Limpar as opções atuais
 
@@ -115,6 +255,15 @@
             document.execCommand('copy');
             alert('Link copiado: ' + linkInput.value);
         }
+
+        document.getElementById('aluno').addEventListener('change', function() {
+            console.log("Evento de mudança do aluno disparado"); 
+            var alunoId = this.value;
+            console.log("Aluno ID selecionado: ", alunoId);
+
+            document.getElementById('desempenho1').style.display = 'block';
+            document.getElementById('desempenho2').style.display = 'block';
+        });
     </script>
 
 {% include "site/partials/footer.html" %}
